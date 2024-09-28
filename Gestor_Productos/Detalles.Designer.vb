@@ -22,10 +22,13 @@ Partial Class Detalles
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Detalles))
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.VolverToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
         Me.MenuStrip1.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuStrip1
@@ -45,12 +48,21 @@ Partial Class Detalles
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.RichTextBox1)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 27)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(776, 411)
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Datos del Proyecto"
+        '
+        'RichTextBox1
+        '
+        Me.RichTextBox1.Location = New System.Drawing.Point(6, 19)
+        Me.RichTextBox1.Name = "RichTextBox1"
+        Me.RichTextBox1.Size = New System.Drawing.Size(764, 386)
+        Me.RichTextBox1.TabIndex = 0
+        Me.RichTextBox1.Text = resources.GetString("RichTextBox1.Text")
         '
         'Detalles
         '
@@ -65,6 +77,7 @@ Partial Class Detalles
         Me.Text = "Detalles"
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
+        Me.GroupBox1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -73,4 +86,5 @@ Partial Class Detalles
     Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents VolverToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents RichTextBox1 As RichTextBox
 End Class

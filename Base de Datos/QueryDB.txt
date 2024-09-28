@@ -1,0 +1,249 @@
+CREATE DATABASE inventariodb;
+
+USE inventariodb; 
+
+CREATE TABLE `usuarios` (
+  `IdUsuario` INT NOT NULL AUTO_INCREMENT,        
+  `Username` VARCHAR(100) NOT NULL,
+  `Password` VARCHAR(255) NOT NULL,
+  `Email` VARCHAR(100) NOT NULL,
+  `Categoria` VARCHAR(45) NOT NULL,
+  `Estado` boolean NOT NULL DEFAULT '1',
+  `FechaCreacion` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`IdUsuario`)
+);
+
+CREATE TABLE `categorias` (
+  `IdCategoria` int NOT NULL AUTO_INCREMENT,
+  `Categoria` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`IdCategoria`)
+) ;
+
+CREATE TABLE `marca` (
+  `IdMarca` int NOT NULL AUTO_INCREMENT,
+  `Marca` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`IdMarca`)
+  );
+
+CREATE TABLE `empaquetado` (
+  `Idempaquetado` int NOT NULL AUTO_INCREMENT,
+  `Empaquetado` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`Idempaquetado`)
+);
+
+CREATE TABLE `productos` (
+  `IdProducto` int NOT NULL AUTO_INCREMENT,
+  `Categoria` varchar(100) DEFAULT NULL,
+  `NombreProducto` varchar(100) NOT NULL,
+  `Marca` varchar(100) DEFAULT NULL,
+  `Empaquetado` varchar(100) DEFAULT NULL,
+  `Cantidad` int NOT NULL,
+  `FechaVencimiento` date DEFAULT NULL,
+  `Precio` varchar(25) DEFAULT NULL,
+  PRIMARY KEY (`IdProducto`)
+);
+
+CREATE TABLE `proveedores` (
+  `IdProveedor` int NOT NULL AUTO_INCREMENT,
+  `NombreProveedor` varchar(100) NOT NULL,
+  `Direccion` varchar(100) NOT NULL,
+  `Telefono` varchar(100) NOT NULL,
+  `Correo` varchar(100) NOT NULL,
+  PRIMARY KEY (`IdProveedor`)
+) ;
+
+CREATE TABLE `clientes` (
+  `IdCliente` int NOT NULL AUTO_INCREMENT,
+  `DNI` int NOT NULL,
+  `NombreCliente` varchar(100) NOT NULL,
+  `Direccion` varchar(100) NOT NULL,
+  `Telefono` varchar(15) NOT NULL,
+  `Correo` varchar(45) NOT NULL,
+  PRIMARY KEY (`IdCliente`)
+) ;
+
+INSERT INTO usuarios (Username, Password, Email, Categoria, Estado)
+VALUES
+('ahernandez', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 'ahernandez@example.com', 'Administrador', 1),
+('bmartinez', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 'bmartinez@example.com', 'Usuario', 1),
+('csanchez', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 'csanchez@example.com', 'Usuario', 1),
+('djimenez', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 'djimenez@example.com', 'Usuario', 1),
+('egarcia', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 'egarcia@example.com', 'Administrador', 1),
+('fserrano', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 'fserrano@example.com', 'Usuario', 1),
+('glopez', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 'glopez@example.com', 'Usuario', 1),
+('hsilva', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 'hsilva@example.com', 'Usuario', 1),
+('ibustos', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 'ibustos@example.com', 'Usuario', 1),
+('jcortes', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 'jcortes@example.com', 'Administrador', 1);
+
+INSERT INTO categorias (Categoria) VALUES 
+('Lácteos'),
+('Carnes'),
+('Frutas'),
+('Verduras'),
+('Bebidas'),
+('Panadería'),
+('Dulces'),
+('Pescados'),
+('Cereales'),
+('Snacks'),
+('Legumbres'),
+('Congelados'),
+('Productos de limpieza'),
+('Cuidado personal'),
+('Electrónica'),
+('Ropa'),
+('Juguetes'),
+('Hogar'),
+('Ferretería'),
+('Mascotas');
+
+INSERT INTO marca (Marca) VALUES 
+('Coca-Cola'),
+('Pepsi'),
+('Danone'),
+('Nestlé'),
+('Huggies'),
+('Colgate'),
+('Samsung'),
+('Nike'),
+('LG'),
+('Sony');
+
+INSERT INTO empaquetado (Empaquetado) VALUES 
+('Caja'),
+('Botella'),
+('Bolsa'),
+('Lata'),
+('Pote'),
+('Envase plástico'),
+('Frasco de vidrio'),
+('Tetra Pack'),
+('Sobre'),
+('Bidón'),
+('Blister'),
+('Bandeja'),
+('Paquete'),
+('Estuche'),
+('Jarra'),
+('Tubo'),
+('Balde'),
+('Sachet'),
+('Bolsa hermética'),
+('Pack individual');
+
+INSERT INTO productos (Categoria, NombreProducto, Marca, Empaquetado, Cantidad, FechaVencimiento, Precio) VALUES
+('Lácteos', 'Leche Entera', 'La Serenísima', 'Botella', 10, '2024-12-01', 150),
+('Lácteos', 'Yogur Natural', 'Sancor', 'Pote', 20, '2024-11-10', 100),
+('Lácteos', 'Queso Crema', 'Ilolay', 'Envase plástico', 15, '2024-10-15', 250),
+('Carnes', 'Carne de Res', 'Carnes Premium', 'Bandeja', 30, '2024-09-20', 1000),
+('Carnes', 'Carne de Cerdo', 'Carnes Premium', 'Bandeja', 25, '2024-11-05', 1200),
+('Carnes', 'Pollo', 'Frigorífico El Pato', 'Bolsa', 40, '2024-10-01', 800),
+('Pescados', 'Salmón', 'PescaMar', 'Bolsa hermética', 10, '2024-12-20', 2500),
+('Pescados', 'Atún en Lata', 'PescaMar', 'Lata', 50, '2025-01-01', 300),
+('Pescados', 'Merluza', 'PescaMar', 'Bandeja', 15, '2024-10-25', 850),
+('Frutas', 'Manzana', 'Frutamanía', 'Bolsa', 100, '2024-11-15', 120),
+('Frutas', 'Banana', 'Frutamanía', 'Bolsa', 80, '2024-09-30', 90),
+('Frutas', 'Pera', 'Frutamanía', 'Bolsa', 60, '2024-10-10', 100),
+('Verduras', 'Lechuga', 'Verdulería Verde', 'Bolsa', 150, '2024-09-25', 50),
+('Verduras', 'Zanahoria', 'Verdulería Verde', 'Bolsa', 120, '2024-10-01', 60),
+('Verduras', 'Tomate', 'Verdulería Verde', 'Bolsa', 80, '2024-09-20', 70),
+('Bebidas', 'Agua Mineral', 'Coca-Cola', 'Botella', 200, '2025-01-05', 80),
+('Bebidas', 'Jugo de Naranja', 'Coca-Cola', 'Botella', 180, '2024-12-10', 120),
+('Bebidas', 'Coca-Cola', 'Coca-Cola', 'Botella', 100, '2024-11-15', 150),
+('Bebidas', 'Pepsi', 'Pepsi', 'Botella', 120, '2024-12-25', 140),
+('Snacks', 'Papas Fritas', 'Lays', 'Bolsa', 50, '2025-02-15', 70),
+('Snacks', 'Cheetos', 'Lays', 'Bolsa', 40, '2025-03-01', 60),
+('Snacks', 'Doritos', 'Lays', 'Bolsa', 45, '2025-04-01', 80),
+('Panadería', 'Pan Integral', 'Bimbo', 'Bolsa', 60, '2024-09-25', 90),
+('Panadería', 'Medialunas', 'Panadería La Nueva', 'Bolsa', 30, '2024-10-05', 120),
+('Panadería', 'Torta', 'Panadería La Nueva', 'Caja', 10, '2024-12-01', 400),
+('Dulces', 'Chocolate', 'Arcor', 'Caja', 80, '2025-01-20', 150),
+('Dulces', 'Alfajor', 'Havanna', 'Envase plástico', 120, '2025-02-10', 180),
+('Dulces', 'Caramelos', 'Arcor', 'Bolsa', 200, '2025-03-15', 50),
+('Cereales', 'Avena', 'Quaker', 'Paquete', 100, '2025-01-01', 130),
+('Cereales', 'Granola', 'Quaker', 'Paquete', 80, '2024-12-20', 110),
+('Cereales', 'Cereal Integral', 'Nestlé', 'Caja', 60, '2025-03-10', 140),
+('Legumbres', 'Lentejas', 'Legumbres del Norte', 'Bolsa', 150, '2025-04-01', 90),
+('Legumbres', 'Porotos', 'Legumbres del Norte', 'Bolsa', 120, '2025-05-15', 100),
+('Legumbres', 'Garbanzos', 'Legumbres del Norte', 'Bolsa', 130, '2025-06-01', 110),
+('Congelados', 'Helado de Vainilla', 'Grido', 'Envase plástico', 40, '2024-12-30', 300),
+('Congelados', 'Pizza Congelada', 'Grido', 'Caja', 50, '2025-01-10', 450),
+('Congelados', 'Hamburguesas Congeladas', 'Paty', 'Caja', 70, '2025-02-01', 350),
+('Productos de limpieza', 'Detergente', 'Ala', 'Botella', 80, '2025-03-15', 150),
+('Productos de limpieza', 'Lavandina', 'Ayudín', 'Botella', 100, '2025-05-01', 100),
+('Productos de limpieza', 'Jabón en Polvo', 'Ala', 'Bolsa', 120, '2025-06-10', 200),
+('Cuidado personal', 'Shampoo', 'Sedal', 'Botella', 60, '2025-07-01', 300),
+('Cuidado personal', 'Jabón de Tocador', 'Dove', 'Caja', 150, '2025-08-15', 90),
+('Cuidado personal', 'Pasta Dental', 'Colgate', 'Tubo', 100, '2025-09-01', 120),
+('Electrónica', 'Celular Samsung', 'Samsung', 'Caja', 30, NULL, 50000),
+('Electrónica', 'Televisor LG', 'LG', 'Caja', 20, NULL, 40000),
+('Electrónica', 'Aire Acondicionado', 'Philips', 'Caja', 10, NULL, 30000),
+('Ropa', 'Camisa', 'Nike', 'Paquete', 50, NULL, 2500),
+('Ropa', 'Pantalones', 'Adidas', 'Paquete', 40, NULL, 3000),
+('Ropa', 'Zapatillas', 'Nike', 'Caja', 30, NULL, 4000),
+('Juguetes', 'Muñeca', 'Hasbro', 'Caja', 20, NULL, 1500),
+('Juguetes', 'Auto de Juguete', 'Mattel', 'Caja', 15, NULL, 1200),
+('Juguetes', 'Juego de Mesa', 'Hasbro', 'Caja', 25, NULL, 1800),
+('Hogar', 'Mesa', 'Muebles ARG', 'Caja', 10, NULL, 10000),
+('Hogar', 'Silla', 'Muebles ARG', 'Caja', 30, NULL, 2500),
+('Hogar', 'Lámpara', 'Philips', 'Caja', 40, NULL, 2000),
+('Ferretería', 'Martillo', 'DeWalt', 'Blister', 50, NULL, 600),
+('Ferretería', 'Destornillador', 'Bosch', 'Blister', 80, NULL, 500),
+('Ferretería', 'Taladro', 'Bosch', 'Caja', 15, NULL, 10000),
+('Mascotas', 'Comida para Perros', 'Royal Canin', 'Bolsa', 200, '2025-10-01', 1000),
+('Mascotas', 'Comida para Gatos', 'Whiskas', 'Bolsa', 150, '2025-09-15', 900),
+('Mascotas', 'Arena para Gatos', 'Cat\'s Best', 'Bolsa', 100, '2025-11-01', 500),
+('Electrodomésticos', 'Heladera', 'Samsung', 'Caja', 10, NULL, 60000),
+('Electrodomésticos', 'Lavarropas', 'LG', 'Caja', 15, NULL, 45000),
+('Electrodomésticos', 'Microondas', 'Samsung', 'Caja', 25, NULL, 15000),
+('Bebidas', 'Agua Saborizada', 'Pepsi', 'Botella', 150, '2025-03-01', 100),
+('Cereales', 'Corn Flakes', 'Kellogg\'s', 'Caja', 70, '2025-04-15', 140),
+('Dulces', 'Galletas', 'Bagley', 'Bolsa', 120, '2025-05-10', 80),
+('Cuidado personal', 'Desodorante', 'Axe', 'Spray', 90, '2025-06-20', 250),
+('Snacks', 'Palitos Salados', 'Bimbo', 'Bolsa', 60, '2025-07-05', 70),
+('Panadería', 'Galletas de Salvado', 'Bimbo', 'Bolsa', 80, '2025-08-01', 90),
+('Legumbres', 'Arvejas', 'Legumbres del Norte', 'Bolsa', 100, '2025-08-15', 110),
+('Carnes', 'Chorizo', 'Carnes Premium', 'Bandeja', 20, '2024-09-10', 1500),
+('Congelados', 'Empanadas Congeladas', 'La Salteña', 'Bolsa', 60, '2025-01-01', 350),
+('Productos de limpieza', 'Suavizante', 'Ala', 'Botella', 100, '2025-04-01', 170),
+('Ropa', 'Campera', 'Puma', 'Caja', 20, NULL, 4500),
+('Electrónica', 'Monitor LED', 'Samsung', 'Caja', 25, NULL, 25000);
+
+
+INSERT INTO proveedores (NombreProveedor, Direccion, Telefono, Correo) 
+VALUES
+('Distribuidora Alimentos SA', 'Calle 123, Buenos Aires', '1122334455', 'contacto@distribuidoraalimentos.com'),
+('Proveedores del Norte SRL', 'Avenida Siempre Viva 742, Córdoba', '1167894561', 'ventas@proveedoresnorte.com'),
+('Comercializadora del Sur', 'Ruta 40 Km 55, Mendoza', '1145678912', 'info@comerciodelsur.com'),
+('ProveedorElect SA', 'Parque Industrial 45, Rosario', '1176543219', 'elect@proveedorelect.com'),
+('Frutas y Verduras del Campo', 'Calle Rural 567, Tucumán', '1187654320', 'frutas@delcampo.com'),
+('TechnoMarket', 'Av. Tecnológica 2020, Buenos Aires', '1198765432', 'soporte@technomarket.com'),
+('Papelera Argentina', 'Calle Industrial 345, La Plata', '1123456789', 'ventas@papeleraargentina.com'),
+('Lácteos del Valle', 'Ruta Provincial 30, San Luis', '1165439871', 'contacto@lacteosdelvalle.com'),
+('Carnes Premium', 'Avenida Carnes 2000, Salta', '1145672341', 'ventas@carnespremium.com'),
+('Embalajes Express', 'Avenida Embalajes 456, Mar del Plata', '1134567890', 'contacto@embalajesexpress.com');
+
+
+INSERT INTO clientes (DNI, NombreCliente, Direccion, Telefono, Correo) 
+VALUES
+(30123456, 'Juan Pérez', 'Calle Falsa 123, Buenos Aires', '1122334455', 'juan.perez@email.com'),
+(32123456, 'María López', 'Avenida Siempre Viva 742, Córdoba', '1167891234', 'maria.lopez@email.com'),
+(30123457, 'Carlos García', 'Boulevard San Martín 456, Rosario', '1145678912', 'carlos.garcia@email.com'),
+(32123457, 'Ana Martínez', 'Ruta 40 Km 55, Mendoza', '1176543219', 'ana.martinez@email.com'),
+(30123458, 'Pedro González', 'Calle Libertad 987, La Plata', '1187654320', 'pedro.gonzalez@email.com'),
+(32123458, 'Laura Fernández', 'Avenida Rivadavia 321, Salta', '1198765432', 'laura.fernandez@email.com'),
+(30123459, 'Diego Ramírez', 'Calle 9 de Julio 567, Tucumán', '1123456789', 'diego.ramirez@email.com'),
+(32123459, 'Lucía Torres', 'Avenida Belgrano 123, Mar del Plata', '1134567890', 'lucia.torres@email.com'),
+(30123460, 'Miguel Álvarez', 'Calle Corrientes 890, San Juan', '1154321876', 'miguel.alvarez@email.com'),
+(32123460, 'Cecilia Gutiérrez', 'Calle Mendoza 234, Neuquén', '1122143654', 'cecilia.gutierrez@email.com');
+
+
+
+
+
+-- TRUNCATE TABLE categorias;
+-- TRUNCATE TABLE productos;
+-- TRUNCATE TABLE marca;
+-- TRUNCATE TABLE empaquetado;
+-- TRUNCATE TABLE usuarios;
+-- TRUNCATE TABLE proveedores;
