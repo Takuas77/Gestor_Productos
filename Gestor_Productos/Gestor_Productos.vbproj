@@ -1,0 +1,505 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D4171347-61B1-49EE-98D9-6FDE55F3DFC8}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>Gestor_Productos.My.MyApplication</StartupObject>
+    <RootNamespace>Gestor_Productos</RootNamespace>
+    <AssemblyName>Gestor_Productos</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>Gestor_Productos.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>Gestor_Productos.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
+      <HintPath>..\packages\BouncyCastle.Cryptography.2.4.0\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="Devart.Data, Version=6.0.10.0, Culture=neutral, PublicKeyToken=09af7300eec23701" />
+    <Reference Include="Devart.Data.MySql, Version=9.3.10.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL" />
+    <Reference Include="Google.Protobuf, Version=3.28.2.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.28.2\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4, Version=1.3.8.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.1.3.8\lib\net462\K4os.Compression.LZ4.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4.Streams, Version=1.3.8.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.Streams.1.3.8\lib\net462\K4os.Compression.LZ4.Streams.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Hash.xxHash, Version=1.0.8.0, Culture=neutral, PublicKeyToken=32cd54395057cec3, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Hash.xxHash.1.0.8\lib\net462\K4os.Hash.xxHash.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.8.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=9.0.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.9.0.0\lib\net462\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.ConfigurationManager, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Configuration.ConfigurationManager.8.0.0\lib\net462\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=8.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.8.0.1\lib\net462\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Pipelines, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Pipelines.8.0.0\lib\net462\System.IO.Pipelines.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="ZstdSharp, Version=0.8.1.0, Culture=neutral, PublicKeyToken=8d151af33a4ad5cf, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZstdSharp.Port.0.8.1\lib\net462\ZstdSharp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="categorias.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>categorias.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Categoria_Alta.Designer.vb">
+      <DependentUpon>Categoria_Alta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Categoria_Alta.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Categoria_Baja.Designer.vb">
+      <DependentUpon>Categoria_Baja.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Categoria_Baja.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AModulos.vb" />
+    <Compile Include="cliente.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>cliente.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes.Designer.vb">
+      <DependentUpon>Clientes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Categoria.Designer.vb">
+      <DependentUpon>Categoria.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Categoria.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clientes_Alta.Designer.vb">
+      <DependentUpon>Clientes_Alta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes_Alta.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clientes_Baja.Designer.vb">
+      <DependentUpon>Clientes_Baja.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes_Baja.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clientes_Mod.Designer.vb">
+      <DependentUpon>Clientes_Mod.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes_Mod.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Detalles.Designer.vb">
+      <DependentUpon>Detalles.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Detalles.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="empaquetado.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>empaquetado.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Login.Designer.vb">
+      <DependentUpon>Login.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Login.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="marcas.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>marcas.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="producto.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>producto.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Productos_Add.Designer.vb">
+      <DependentUpon>Productos_Add.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Productos_Add.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Productos_Del.Designer.vb">
+      <DependentUpon>Productos_Del.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Productos_Del.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Productos_Mod.Designer.vb">
+      <DependentUpon>Productos_Mod.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Productos_Mod.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="proveedor.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>proveedor.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="proveedor.vb">
+      <DependentUpon>proveedor.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Proveedores_Alta.Designer.vb">
+      <DependentUpon>Proveedores_Alta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Proveedores_Alta.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Proveedores_Baja.Designer.vb">
+      <DependentUpon>Proveedores_Baja.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Proveedores_Baja.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Proveedores_Mod.Designer.vb">
+      <DependentUpon>Proveedores_Mod.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Proveedores_Mod.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="usuario.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>usuario.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Usuarios_Agregar.Designer.vb">
+      <DependentUpon>Usuarios_Agregar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Usuarios_Agregar.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Usuarios_Modificar.Designer.vb">
+      <DependentUpon>Usuarios_Modificar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Usuarios_Modificar.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Usuario_Administrar.Designer.vb">
+      <DependentUpon>Usuario_Administrar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Usuario_Administrar.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventas.Designer.vb">
+      <DependentUpon>Ventas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Proveedores.Designer.vb">
+      <DependentUpon>Proveedores.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Proveedores.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Productos.Designer.vb">
+      <DependentUpon>Productos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Productos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inicio.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inicio.Designer.vb">
+      <DependentUpon>Inicio.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Categoria.resx">
+      <DependentUpon>Categoria.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Categoria_Alta.resx">
+      <DependentUpon>Categoria_Alta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Categoria_Baja.resx">
+      <DependentUpon>Categoria_Baja.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clientes.resx">
+      <DependentUpon>Clientes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clientes_Alta.resx">
+      <DependentUpon>Clientes_Alta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clientes_Baja.resx">
+      <DependentUpon>Clientes_Baja.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clientes_Mod.resx">
+      <DependentUpon>Clientes_Mod.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Detalles.resx">
+      <DependentUpon>Detalles.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inicio.resx">
+      <DependentUpon>Inicio.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Productos.resx">
+      <DependentUpon>Productos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Productos_Add.resx">
+      <DependentUpon>Productos_Add.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Productos_Del.resx">
+      <DependentUpon>Productos_Del.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Productos_Mod.resx">
+      <DependentUpon>Productos_Mod.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proveedores.resx">
+      <DependentUpon>Proveedores.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proveedores_Alta.resx">
+      <DependentUpon>Proveedores_Alta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proveedores_Baja.resx">
+      <DependentUpon>Proveedores_Baja.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proveedores_Mod.resx">
+      <DependentUpon>Proveedores_Mod.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Usuarios_Agregar.resx">
+      <DependentUpon>Usuarios_Agregar.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Usuarios_Modificar.resx">
+      <DependentUpon>Usuarios_Modificar.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Usuario_Administrar.resx">
+      <DependentUpon>Usuario_Administrar.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventas.resx">
+      <DependentUpon>Ventas.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="categorias.xsc">
+      <DependentUpon>categorias.xsd</DependentUpon>
+    </None>
+    <None Include="categorias.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>categorias.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="categorias.xss">
+      <DependentUpon>categorias.xsd</DependentUpon>
+    </None>
+    <None Include="cliente.xsc">
+      <DependentUpon>cliente.xsd</DependentUpon>
+    </None>
+    <None Include="cliente.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>cliente.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="cliente.xss">
+      <DependentUpon>cliente.xsd</DependentUpon>
+    </None>
+    <None Include="empaquetado.xsc">
+      <DependentUpon>empaquetado.xsd</DependentUpon>
+    </None>
+    <None Include="empaquetado.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>empaquetado.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="empaquetado.xss">
+      <DependentUpon>empaquetado.xsd</DependentUpon>
+    </None>
+    <None Include="marcas.xsc">
+      <DependentUpon>marcas.xsd</DependentUpon>
+    </None>
+    <None Include="marcas.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>marcas.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="marcas.xss">
+      <DependentUpon>marcas.xsd</DependentUpon>
+    </None>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="App.config" />
+    <None Include="proveedor.xsc">
+      <DependentUpon>proveedor.xsd</DependentUpon>
+    </None>
+    <None Include="proveedor.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>proveedor.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="proveedor.xss">
+      <DependentUpon>proveedor.xsd</DependentUpon>
+    </None>
+    <None Include="usuario.xsc">
+      <DependentUpon>usuario.xsd</DependentUpon>
+    </None>
+    <None Include="usuario.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>usuario.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="usuario.xss">
+      <DependentUpon>usuario.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="producto.xsc">
+      <DependentUpon>producto.xsd</DependentUpon>
+    </None>
+    <None Include="producto.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>producto.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="producto.xss">
+      <DependentUpon>producto.xsd</DependentUpon>
+    </None>
+    <None Include="Resources\category_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\conveyor_belt_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\currency_exchange_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\groups_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\info_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inventory_2_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+</Project>
