@@ -5,6 +5,8 @@ Para el funcionamiento se usaron las siguientes librerias:
 
 Tambien dejo la base de datos en Mysql, actual usada y aparte un txt con el query.
 
+Se podria usar otra Base de datos, con similar estructura, para lo cual abria que modificar "AModulos.vd" "Linea: 8"
+
 
 
 Credenciales de ingreso.
